@@ -46,7 +46,7 @@ export const WebsocketProvider = ({ children }: TProps) => {
   useEffect(() => {
     if (userName && mapEnv.BASE_URL && !socketIo) {
       const socket = io(mapEnv.BASE_URL, {
-         transports: ['polling'],
+         transports: ['polling', 'websocket'],
       });
 
       setSocketIo(socket);
