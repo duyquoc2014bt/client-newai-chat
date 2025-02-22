@@ -10,9 +10,11 @@ pipeline {
     stages {
         stage('deploy vercel') {
             steps {
-                sh 'npm install'
-                sh 'npm run build'
-                sh 'vercel --token $VERCEL_TOKEN --prod'
+                dir('client') {
+                    sh 'pnpm install'
+                    sh 'pnpm run build'
+                    sh 'vercel --token $VERCEL_TOKEN --prod'
+                }
             }
         }
     }
