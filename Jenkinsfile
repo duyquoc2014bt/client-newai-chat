@@ -10,11 +10,11 @@ pipeline {
     stages {
         stage('deploy vercel') {
             steps {
-                dir('client') {
-                    sh 'pnpm install'
-                    sh 'pnpm run build'
-                    sh 'vercel --token $VERCEL_TOKEN --prod'
-                }
+                sh 'curl -fsSL https://get.pnpm.io/install.sh | sh'
+                sh 'export PATH="$HOME/.local/share/pnpm:$PATH"'
+                sh 'pnpm install'
+                sh 'pnpm run build'
+                sh 'vercel --token $VERCEL_TOKEN --prod'
             }
         }
     }
