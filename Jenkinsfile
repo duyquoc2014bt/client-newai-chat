@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     environment {
+        SHELL = "/bin/bash"
         VERCEL_ORG_ID = credentials('VERCEL_ORG_ID')  // Lưu trong Jenkins Credentials
         VERCEL_PROJECT_ID = credentials('VERCEL_PROJECT_ID')  // Lưu trong Jenkins Credentials
         VERCEL_TOKEN = credentials('VERCEL_TOKEN')  // Lưu trong Jenkins Credentials
